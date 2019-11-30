@@ -1,6 +1,3 @@
-
-
-
 This is an installation and runnable Docker for edx-dl
 
 The instructions assumes you have docker and Make installed on your system. It was tested on OSx, but should work on Linux as well.
@@ -34,8 +31,10 @@ Now your current folder should contain all the videos.
 Enjoy!!!
 
 
-
 Dockerfile
+
+
+```
 FROM python:3.6.9-buster
 
 RUN git clone https://github.com/codekendo/edx-dl
@@ -52,13 +51,13 @@ run: build
 
 build:
 	docker build -t edx-dl-docker .
+```
 
+`python /edx-dl/edx-dl.py -u '<EMAIL>' -p '<PASSWORD>' --help`
 
-python /edx-dl/edx-dl.py -u '<EMAIL>' -p '<PASSWORD>' https://courses.edx.org/courses/course-v1:MITx+6.008.1x+3T2016/course/
+`python /edx-dl/edx-dl.py -u '<EMAIL>' -p '<PASSWORD>' --list-courses`
 
-python /edx-dl/edx-dl.py -u '<EMAIL>' -p '<PASSWORD>' --list-courses
-
-python /edx-dl/edx-dl.py -u '<EMAIL>' -p '<PASSWORD>' -o 'Downloaded/The_Analytics_Edge2018' https://courses.edx.org/courses/course-v1:MITx+15.071x+3T2018/course/
+`python /edx-dl/edx-dl.py -u '<EMAIL>' -p '<PASSWORD>' -i -s -o 'Downloaded/' '<COURSE_URL>'`
 
 
 https://gist.github.com/awalterschulze/531ae5c688746eece5db
